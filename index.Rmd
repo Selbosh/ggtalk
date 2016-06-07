@@ -174,7 +174,7 @@ ggplot(data.frame(brand=c('Dairy Milk', 'Galaxy', 'Kit-Kat', 'Mars'),
   aes(brand, sales, colour="1", fill="1") +
   geom_bar(stat="identity", width=0.02) +
   geom_point(size=6) +
-  scale_y_continuous(labels = function(n) paste0('£', n/1e6, 'm')) +
+  scale_y_continuous(labels = function(n) paste0(n/1e6, 'm')) +
   xlab(NULL) + ylab(NULL) +
   theme_classic() + theme(legend.position="none", axis.ticks.x=element_blank())
 
@@ -427,7 +427,7 @@ gg + facet_wrap(~variable, dir="v", scales="free_y") +
   scale_x_continuous(breaks=temperatures$long) +
   theme(panel.grid.major.x=element_line(colour="#efefef", size=0.2)) +
   geom_text(data = data.frame(variable="temp", long=28, temp=-5), aes(long, temp),
-            label="Temperature on return path (degrees Réaumur)", size=5, family="serif") +
+            label="Temperature on return path (degrees Reaumur)", size=5, family="serif") +
   theme(legend.position="none",
         strip.text = element_blank(),
         panel.margin = unit(0, "lines"))
