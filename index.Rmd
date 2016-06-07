@@ -337,19 +337,27 @@ theme_titanic <- function() theme_classic() +
 
 ## Let's make a pie chart {data-transition="fade"}
 
-```{r, echo=TRUE}
-(pie <- ggplot(Titanic) +
+```{r, echo=1}
+pie <- ggplot(Titanic) +
   scale_x_discrete() + scale_y_continuous() + scale_fill_discrete() +
   geom_bar(width = 1, position = "fill") +
-  coord_polar(theta = "y") +
   aes(x = "", fill = Survived, weight = Freq) +
-  theme_titanic())
+  theme_titanic()
+pie
 ```
 
 ## Let's make a pie chart {data-transition="fade"}
 
-```{r echo=TRUE, fig.height=2, out.width='100%'}
-pie + facet_grid(. ~ Class)
+```{r echo=1}
+pie <- pie + coord_polar(theta = "y")
+pie
+```
+
+## Let's make a pie chart {data-transition="fade"}
+
+```{r echo=1, fig.height=2, out.width='100%'}
+pie <- pie + facet_grid(. ~ Class)
+pie
 ```
 
 ## Let's make a pie chart {data-transition="fade"}
@@ -436,17 +444,36 @@ gg + facet_wrap(~variable, dir="v", scales="free_y") +
 ## Implementations
 
 - Graphics Production Language (SPSS)
+
 - ggplot2 / ggvis (R)
+
 - Bokeh (Python)
+
 - Gadfly (Julia)
+
 - D3 / [Vega](http://vega.github.io/vega/) (JavaScript)
+
 - Grammarphone (Spotify API)
+
+## Asciiplot
+
+```{r echo=TRUE}
+source('asciiplot.R')
+asciiplot(df = iris,
+          aes = list(x='Sepal.Width', y='Sepal.Length'),
+          geom = 'point')
+```
 
 ## Grammarphone
 
-* Implements a `sound` geom for line graphs
+* Implements a sound `geom` for line graphs
+
 * Maps values in data to frequency/volume of music
+
+* Awarded 1st prize at Anvil Hack II
+
 * Definitely useful
+
 * [**Try it here**](http://angusscott.github.io/GoldsmithHack)
 
 # The End
@@ -455,4 +482,6 @@ gg + facet_wrap(~variable, dir="v", scales="free_y") +
 
 - Wilkinson, Leland. *The Grammar of Graphics*. 2nd edition. Springer Science & Business Media, 2005.
 
-- Wickham, Hadley. "A layered grammar of graphics". *Journal of Computational and Graphical Statistics* 19.1 (2010): 3--28.
+- Wickham, Hadley. "A layered grammar of graphics." *Journal of Computational and Graphical Statistics* 19.1 (2010): 3--28.
+
+Source code available on [Github](http://github.com/Selbosh/ggtalk)
