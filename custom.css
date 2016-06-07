@@ -1,0 +1,13 @@
+.slides img {
+	border: 0 !important;
+}
+
+.titleslide h1, h1.title {
+	font-size: 2.5em;
+	font-weight: bold;
+	margin-top: 20%;
+}
+
+.reveal .progress {
+	height: 8px;
+}
